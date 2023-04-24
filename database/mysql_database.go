@@ -31,7 +31,7 @@ func InitDB() {
 		DB_Username: "root",
 		DB_Password: "password",
 		DB_Port:     "3306",
-		DB_Host:     "db-service",
+		DB_Host:     "mysql-service",
 		DB_Name:     "crud_go",
 	}
 

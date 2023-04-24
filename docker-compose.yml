@@ -8,9 +8,9 @@ services:
     networks:
       - app-network
     depends_on:
-      - db
+      - db-service
   
-  db:
+  db-service:
     image: mysql:latest
     environment:
       - MYSQL_ROOT_PASSWORD=""

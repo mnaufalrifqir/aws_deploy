@@ -31,7 +31,7 @@ func InitDB() {
 		DB_Username: "root",
 		DB_Password: "",
 		DB_Port:     "3306",
-		DB_Host:     "host.docker.internal",
+		DB_Host:     "db",
 		DB_Name:     "crud_go",
 	}
 

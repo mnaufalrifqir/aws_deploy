@@ -29,7 +29,7 @@ type Config struct {
 func InitDB() {
 	config := Config{
 		DB_Username: "root",
-		DB_Password: "",
+		DB_Password: "password",
 		DB_Port:     "3306",
 		DB_Host:     "db-service",
 		DB_Name:     "crud_go",

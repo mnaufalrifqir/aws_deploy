@@ -1,26 +1,27 @@
 version: '3'
 services:
-  db:
-    image: mysql:5.7
-    restart: always
-    environment:
-      MYSQL_DATABASE: your_database_name
-      MYSQL_USER: your_mysql_user
-      MYSQL_PASSWORD: your_mysql_password
-      MYSQL_ROOT_PASSWORD: your_mysql_root_password
-    volumes:
-      - ./mysql_data:/var/lib/mysql
-    ports:
-      - "3306:3306"
   app:
     build: .
     ports:
-      - "8080:8080"
-    environment:
-      DB_HOST: "localhost"
-      DB_PORT: 3306
-      DB_USER: "root"
-      DB_PASSWORD: ""
-      DB_NAME: "crud_go"
+      - 8080:8000
+    restart: on-failure
+    networks:
+      - app-network
     depends_on:
       - db
+  
+  db:
+    image: mysql:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+    ports:
+      - 3306
+    volumes:
+      - ./mysqldb/schema.sql:/data/application/init.sql
+    command: --init-file /data/application/init.sql
+    networks:
+      - app-network
+
+networks:
+ app-network:
+  driver: bridge

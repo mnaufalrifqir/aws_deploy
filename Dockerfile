@@ -11,6 +11,6 @@ COPY . .
 
 RUN go build -o /dist
 
-EXPOSE 3222
+EXPOSE 8080
 
 CMD ["/dist"]

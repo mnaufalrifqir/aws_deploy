@@ -9,11 +9,11 @@ services:
       - app-network
     depends_on:
       - db-service
-  
+
   db-service:
     image: mysql:latest
     environment:
-      - MYSQL_ROOT_PASSWORD="password"
+      - MYSQL_ROOT_PASSWORD=password
     ports:
       - 3306
     volumes:
@@ -23,5 +23,5 @@ services:
       - app-network
 
 networks:
- app-network:
-  driver: bridge
+  app-network:
+    driver: bridge
